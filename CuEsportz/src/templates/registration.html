@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In/Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+           input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+ @import url('https://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700&subset=latin-ext');
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.wrapper {
+    width: 1%;
+    height: 100vh;
+    background: #ededed;
+    display: table-cell;
+    vertical-align: middle;
+    font-family: 'Dosis', sans-serif;
+}
+
+.sign-panels {
+    width: 650px;
+    background: #fff;
+    padding: 40px 80px;
+    margin: 40px auto;
+    border-radius: 20px;
+    text-align: center;
+}
+.login,.signup {
+    position: relative;
+}
+
+
+.title {
+    color: #9f9f9f;
+}
+
+.title span {
+    display: block;
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.title p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn-face,.btn-google {
+    margin-top: 20px;
+    color: #fff;
+    display: inline-block;
+    width: 200px;
+    font-size: 20px;
+    height: 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    padding: 11px 0;
+    font-weight: 500;
+}
+
+.btn-face {
+    background: #5397d7;
+    margin-right: 25px;
+}
+
+.btn-google {
+    background: #40b9e0;
+}
+
+.or {
+    margin: 35px 0;
+    font-weight: 600;
+    color: #9f9f9f;
+}
+
+.or:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #cecece;
+    position: absolute;
+    margin-top: -10px;
+    z-index: 0;
+}
+
+.or span {
+    display: block;
+    background: #fff;
+    width: 50px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.sign-panels input {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    background: #ededed;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+    color: #03a9f4;
+    font-weight: 600;
+}
+
+.sign-panels input:focus {
+    outline:none;
+}
+
+.btn-signin {
+    display: inline-block;
+    width: 50%;
+    margin-top: 10px;
+    height: 50px;
+    background: #ec581e;
+    border-radius: 50px;
+    padding: 11px;
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.btn-reset,.btn-member,.btn-fade {
+    font-size: 19px;
+    font-weight: 500;
+    color: #9f9f9f;
+    display: block;
+    /*width: 210px;*/
+    margin: 30px auto 0;
+    text-decoration: none;
+
+}
+.btn-member {
+    margin-top: 15px;
+}
+
+.btn-reset .fa,.btn-member .fa {
+    margin-left: 6px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .sign-panels {
+        width: 90%;
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .sign-panels {
+        padding: 40px 20px;
+    }
+
+    .btn-face, .btn-google {
+        width: 100%;
+    }
+    .btn-face {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-signin {
+        width: 80%;
+    }
+
+    .title span {
+        font-size: 36px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sign-panels">
+            <div class="login">
+                <div class="title">
+                    <span>Sign In</span>
+                    <!-- <p>Welcome back, please login to your account. You can login with facebook, Google or by your
+                        regular
+                        user login.</p> -->
+                </div>
+
+                <div>
+                    <a href="#" class="btn-face"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+                    <a href="#" class="btn-google"><i class="fa fa-google" aria-hidden="true"></i> Google</a>
+                </div>
+
+                <div class="or"><span>OR</span></div>
+
+                <form action="signin" method="POST">
+                {% csrf_token %}
+                    <input type="text" placeholder="MobileNumber/Username" name="user_mob">
+                    <input type="password" placeholder="Password" name="password">
+                    <button method="submit" class="btn-signin">Sign In</button>
+
+                    <a href="javascript:void(0)" class="btn-reset btn-fade">Recover your password <i
+                            class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0)" class="btn-member btn-fade">Not a member yet? <i
+                            class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </form>
+            </div>
+
+            <div class="signup">
+                <div class="title"> 
+                    <span>Sign Up</span>
+                    <!-- <p>Create a new account. You can sign up with your facebook or twitter accunt. Or your regular user
+                        login.</p> -->
+                </div>
+
+                <div>
+                    <a href="#" class="btn-face"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
+                    <a href="#" class="btn-google"><i class="fa fa-google" aria-hidden=   "true"></i> Google</a>
+                </div>
+
+                <div class="or"><span>OR</span></div>
+
+                <form action="signup" method="POST">
+                {% csrf_token %} 
+                    <input type="text" placeholder="Name" name="name">
+                    <input type="email" placeholder="Email Address" name="email">
+                    <input type="number" placeholder="Phone Number" name="mob">
+                    <input type="password" placeholder="Password" name="password1">
+                    <input type="password" placeholder="Repeat Password" name="password2">
+                    <input type="text" placeholder="Referral code" name="reffral_code">
+
+                    <button class="btn-signin">Sign Up</button>
+                    <a href="javascript:void(0)" class="btn-login btn-fade">Already have an account, Sign In <i
+                            class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+// $('.login').hide();
+$('.signup').hide();
+
+$('.btn-member').click(function () {
+    $('.login').hide();
+    $('.signup').fadeIn(300);
+});
+
+
+$('.btn-login').click(function () {
+    $('.signup').hide();
+    $('.login').fadeIn(300);
+
+});
+</script>
+</body>
+</html>

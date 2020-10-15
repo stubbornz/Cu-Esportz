@@ -1,0 +1,61 @@
+  .text-align-center
+  {
+  	text-align: center;
+  }
+
+.heading
+{
+	color: #000000;
+	padding: 10px;
+	margin: 0;
+
+}
+
+  .heading:hover
+  {
+  	background-color: #000000;
+  	color: #ffffff;
+    padding: 10px;
+    margin: 0;
+
+  }
+  
+  .activetab
+  {
+  	background-color:#D3D3D3 ;
+  }
+
+
+  .border-10{
+border-style: solid;
+ border-width: 20px;
+}
+body
+{
+	padding-top: 90px;
+}
+
+.tc
+{
+	color: #000000;
+}
+.mainn
+{
+	background: #D3D3D3D3;
+	width: 500px;
+	padding: 20px;
+	border-radius: 25px;
+	margin: auto;
+	box-shadow: 10px 10px 10px #000000;
+	padding-bottom: 40px;
+	margin-top: 30px;
+}
+.round
+{
+	border-radius: 10px;
+}
+.bottonn:hover
+{
+	background:#000000 ;
+	color: #ffffff;
+}

@@ -1,0 +1,41 @@
+  .text-align-center
+  {
+  	text-align: center;
+  }
+
+.heading
+{
+	color: #000000;
+	padding: 10px;
+	margin: 0;
+
+}
+
+  .heading:hover
+  {
+  	background-color: #000000;
+  	color: #ffffff;
+    padding: 10px;
+    margin: 0;
+
+  }
+  
+  .activetab
+  {
+  	background-color:#D3D3D3 ;
+  }
+
+
+  .border-10{
+border-style: solid;
+ border-width: 20px;
+}
+body
+{
+	padding-top: 90px;
+}
+
+.tc
+{
+	color: #000000;
+}

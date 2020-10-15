@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #50555a;
+        }
+
+        /* this is for header */
+        header {
+            height: 65px;
+            top: 0;
+            left: 0;
+            background-color: #46a1de;
+            /* z-index: 1; */
+        }
+
+        /* this is for logo  */
+        a img {
+            position: absolute;
+            height: 90px;
+            padding-left: 10px;
+            /* z-index: 2; */
+        }
+
+        /* this is for nav elemnets  */
+        nav ul {
+            font-size: 20px;
+            display: flex;
+            margin-top: 18px;
+            position: relative;
+            float: right;
+        }
+
+        nav ul li {
+
+            list-style: none;
+            padding: 5px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            margin: 15px;
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background: #fff;
+            color: #262626;
+        }
+
+        nav ul li a.active {
+            background: #fff;
+            color: #262626;
+        }
+
+        /* this is for wallet heading  */
+        .head {
+            text-align: center;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        .currency {
+            width: 13%;
+            position: relative;
+            left: 1090px;
+            top: -42px;
+            display: flex;
+        }
+
+        .goldcoin {
+            height: 40px;
+            margin-left: 30px;
+        }
+
+        .coinpoint {
+            font-size: 35px;
+            margin-left: 5px;
+        }
+
+        .heart {
+
+            height: 40px;
+        }
+
+        .heartpoint {
+            font-size: 35px;
+            margin-left: 5px;
+        }
+
+        /* trial  */
+
+        .bg-color {
+            background-color: #46a1de;
+            transition-duration: .5s;
+        }
+
+        .text-color {
+
+            transition-duration: .5s;
+        }
+
+        .wrapper {
+            min-width: 100%;
+            /* max-width: 1000px; */
+            margin: 0 auto;
+        }
+
+        .tabs {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+        }
+
+        .tabs>li {
+            transition-duration: .25s;
+            display: table-cell;
+            list-style: none;
+            text-align: center;
+            padding: 20px 20px 25px 20px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            color: black;
+        }
+
+        .tabs>li:before {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 120%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+            transition-duration: .25s;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .tabs>li:hover:before {
+            -webkit-transform: translateY(70%);
+            transform: translateY(70%);
+        }
+
+        .tabs>li.active {
+            color: #50555a;
+        }
+
+        .tabs>li.active:before {
+            transition-duration: .5s;
+            background-color: #46a1de;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .tab__content {
+            background-color: #46a1de;
+            position: relative;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .tab__content>li {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            list-style: none;
+        }
+
+        .tab__content>li .content__wrapper {
+            min-height: 68vh;
+            text-align: center;
+            border-radius: 5px;
+            width: 100%;
+            padding: 45px 40px 40px 40px;
+            /* background-color: white; */
+            background-color: #46a1de;
+        }
+
+        .form .input {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .form .input .inputbox {
+            margin-top: 20px;
+        }
+
+        .form .input .inputbox label {
+            display: block;
+            color: #868686;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .form .input .inputbox input {
+            width: 30%;
+            height: 50px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            padding: 5px 15px;
+            color: #fff;
+            font-size: 18px;
+            color: #03a9f4;
+            box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+                inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .form .input .inputbox input[type="submit"] {
+            margin: 2px;
+            color: black;
+            box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.1),
+                2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .form .input .inputbox input[type="submit"]:active {
+            color: #006c9c;
+            margin: 2px;
+            box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.1),
+                inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .form .input .inputbox input::placeholder {
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href=""><img src="/static/img/logo.png"></a>
+        <nav>
+            <ul>
+                <li> <a href="">Home</a></li>
+                <li><a href="">Task</a></li>
+                <li><a href="" class="active">Wallet</a></li>
+                <li><a href="">profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="head">
+        <p>Wallet</p>
+    </div>
+    <div class="currency">
+        <img src="/static/img/heart.png" class="heart">
+        <p class="heartpoint">0</p>
+        <img src="/static/img/gold.png" class="goldcoin">
+        <p class="coinpoint">0</p>
+
+    </div>
+    <!-- trial  -->
+    <section class="wrapper">
+        <ul class="tabs">
+            <li class="active">Converter <i class="fa fa-usd" aria-hidden="true"></i><i class="fa fa-arrow-circle-right"
+                    aria-hidden="true"></i><i class="fa fa-heart" aria-hidden="true"></i></li>
+            <li>Purchase<i class="fa fa-credit-card-alt" aria-hidden="true"></i></li>
+            <li>Withdrawal <i class="fa fa-money" aria-hidden="true"></i></li>
+        </ul>
+
+        <ul class="tab__content">
+            <li class="active">
+                <div class="content__wrapper">
+                    <div class="form">
+                        <div class="input">
+                            <div class="inputbox">
+                                <lable style="color: #131419; font-size: 20px;">GoldCoin</lable>
+                                <input id="in" onkeyup="myFunction()" type="number" placeholder="Number of goldcoin">
+                            </div>
+                                <div class="inputbox">
+                                    <lable   style="color: #131419; font-size: 20px;">Heart</lable>
+                                    <input type="number"  id="out" placeholder="Number of Heart you will Get" readonly>
+                            </div>
+                            <div class="inputbox">
+                                <input type="submit" value="Convert">
+                                </div>
+                        
+                    </div>
+                </div>
+                </div>
+            </li>
+            <li>
+                <div class="content__wrapper">
+                    <div class="form">
+                        <div class="input">
+                            <div class="inputbox">
+                                <lable style="color: #131419; font-size: 20px;">Enter Amount</lable>
+                                <input id="in1" onkeyup="myFunction()" type="number" placeholder="Enter the Amount">
+                            </div>
+                                <div class="inputbox">
+                                    <lable   style="color: #131419; font-size: 20px;">GoldCoin</lable>
+                                    <input type="number"  id="out1" placeholder="Number of GoldCoin that you will Get" readonly>
+                            </div>
+                            <div class="inputbox">
+                                <input type="submit" value="Buy">
+                                </div>
+                        
+                    </div>
+                </div>
+                </div>
+            </li>
+            <li>
+                <div class="content__wrapper">
+                    <div class="form">
+                        <div class="input">
+                            <div class="inputbox">
+                                <lable style="color: #131419; font-size: 20px;">GoldCoin</lable>
+                                <input id="in2" onkeyup="myFunction()" type="number" placeholder="Enter the goldcoin">
+                            </div>
+                                <div class="inputbox">
+                                    <lable   style="color: #131419; font-size: 20px;">Amount</lable>
+                                    <input type="number"  id="out2" placeholder="Amount that you will Recive" readonly>
+                            </div>
+                            <div class="inputbox">
+                                <input type="submit" value="Withdraw">
+                                </div>
+                        
+                    </div>
+                </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        // this for tabs changing 
+        $(document).ready(function () {
+
+            // Variables
+            var clickedTab = $(".tabs > .active");
+            var tabWrapper = $(".tab__content");
+            var activeTab = tabWrapper.find(".active");
+            var activeTabHeight = activeTab.outerHeight();
+
+            // Show tab on page load
+            activeTab.show();
+
+            // Set height of wrapper on page load
+            tabWrapper.height(activeTabHeight);
+
+            $(".tabs > li").on("click", function () {
+
+                // Remove class from active tab
+                $(".tabs > li").removeClass("active");
+
+                // Add class active to clicked tab
+                $(this).addClass("active");
+
+                // Update clickedTab variable
+                clickedTab = $(".tabs .active");
+
+                // fade out active tab
+                activeTab.fadeOut(250, function () {
+
+                    // Remove active class all tabs
+                    $(".tab__content > li").removeClass("active");
+
+                    // Get index of clicked tab
+                    var clickedTabIndex = clickedTab.index();
+
+                    // Add class active to corresponding tab
+                    $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+
+                    // update new active tab
+                    activeTab = $(".tab__content > .active");
+
+                    // Update variable
+                    activeTabHeight = activeTab.outerHeight();
+
+                    // Animate height of wrapper to new tab height
+                    tabWrapper.stop().delay(50).animate({
+                        height: activeTabHeight
+                    }, 500, function () {
+
+                        // Fade in active tab
+                        activeTab.delay(50).fadeIn(250);
+
+                    });
+                });
+            });
+
+        });
+
+        // this if for converstion 
+        function myFunction() {
+  var x = document.getElementById("in").value;
+  document.getElementById("out").value = x;
+  var y = document.getElementById("in1").value;
+  document.getElementById("out1").value = y;
+var z = document.getElementById("in2").value;
+  document.getElementById("out2").value = z;
+}
+    </script>
+</body>
+
+</html>

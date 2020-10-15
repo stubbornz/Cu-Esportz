@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		HOST
+	</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap_grid.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstraps.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/stylesheets.css">
+	<script type="text/javascript" src="/static/js/bootstrap.js"></script>
+</head>
+<body>
+	<header>
+<nav class="navbar navbar-dark navbar-expand-sm fixed-top bg-dark">
+        	<div class="container">
+        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        			<span class="navbar-toggler-icon"></span>
+        		</button>
+        		
+        	  	<a class="navbar-brand mr-auto ml-n5  " href="#" ><img src="/static/img/logo.jpg" id="logo" width="50px">cu esportz</a>
+              	
+              <div class="collapse navbar-collapse" id="Navbar">
+              	
+
+              <ul class="navbar-nav ml-auto ">
+              	
+              	<li class="nav-item pl-2  " ><a class="nav-link" href="#" >Home</a></li>
+                <li class="nav-item pl-2  "><a class="nav-link" href="#">Earn</a></li>
+                <li class="nav-item pl-2 "><a  class="nav-link" href="wallet">Wallet</a></li>
+                <li class="nav-item  pl-2 "><a class="nav-link"  href="#">Profile</a></li>
+                <li class="nav-item pl-2 "><a  class="nav-link" href="#"><img src="/static/img/logo.jpg" width="50px"></a></li>
+              </ul>
+          
+              </div> 
+
+        	</div>
+        	
+
+        </nav>
+
+
+	
+	
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-n4">
+    <li class="breadcrumb-item"><a href="#">Profile</a></li>
+    <li class="breadcrumb-item"><a href="#">record</a></li>
+    <li class="breadcrumb-item active" aria-current="page">host tournament</li>
+  </ol>
+</nav>
+		
+
+  </header>
+
+	<main>
+
+
+    <div class="text-align-center border mainn">
+             <form action="hostsubmited" method="POST">
+             {% csrf_token %}
+                    <div class="form-group">
+                         <label for="">Name for tournament</label>
+                         <input class="round text-align-center" type="text" name="tournament_name" placeholder="tournament name" id="" value="">
+                    </div>
+                    <div class="form-group">
+                         <label for="">Map Selection</label>
+                         <select class="round" class="" id="map" name="map">
+                                <option value="erangle">Erangle</option>
+                                <option value="shanok">shanok</option>
+                                <option value="vikendi">Vikendi</option>
+                                <option value="miramar">Miramar</option>
+                                <option value="livik">Livik</option>
+                                <option value="tdm">TDM</option>
+
+                         </select>
+                    </div>
+                    <div class="form-group">     
+                         <label for="">Team</label>
+                         <select class="round" id="team" name="team" >
+                                <option value="solo" >SOLO</option>
+                                <option value="duo">dUO</option>
+                                <option value="squad">SquAD</option>
+                         </select>
+
+                    </div>
+                    <div class="form-group">    
+                         <label for="">perspective</label>
+                         <select class="round" id="perspective" name="perspective">
+                               <option value="tpp">TPP</option>
+                               <option value="fpp">FPP</option>
+                         </select>
+                    </div>   
+                    <div class="form-group">
+                          
+                         <label for="">price pool</label>
+                         <input class="round text-align-center" placeholder="pricepool"  type="number" name="number">
+
+                    </div>     
+                    <div class="form-group">
+                         <label for="">  no. of rank </label>
+                         <input class="round text-align-center" type="number" placeholder="no. of rank" name="no_of_rank">
+                    </div>  
+                    <div>   
+                         <label for="">  amount of kill   </label>
+                         <input class="round text-align-center"  type="number" placeholder="amount of kills" name="amount">
+                    </div>     
+
+                     <div class="">
+            <button class=" round mt-3" name="submit">submit</button>
+          </div>
+       
+          </form>
+          
+     </div>
+ 
+         
+
+</main>
+
+</body>
+</html>
