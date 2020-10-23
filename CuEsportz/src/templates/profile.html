@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+    <style>
+          * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+ header {
+            height: 65px;
+            top: 0;
+            left: 0;
+            background-color: #46a1de;
+            /* z-index: 1; */
+        }
+
+        /* this is for logo  */
+        a img {
+            position: absolute;
+            height: 90px;
+            padding-left: 10px;
+            /* z-index: 2; */
+        }
+
+        /* this is for nav elemnets  */
+        nav ul {
+            font-size: 20px;
+            display: flex;
+            margin-top: 18px;
+            position: relative;
+            float: right;
+        }
+
+        nav ul li {
+
+            list-style: none;
+            padding: 5px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            margin: 15px;
+            padding: 10px 10px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background: #fff;
+            color: #262626;
+        }
+
+        nav ul li a.active {
+            background: #fff;
+            color: #262626;
+        }
+     
+        .bgimg{
+            height: 200px;
+            background: url(wallpapersden.com_k-fortnite-mobile_3840x2160.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        .name{
+            font-size: 30px;
+            color: whitesmoke;
+            display: inline-block;
+            position: relative;
+    left: 132px;
+    top: -260px;
+    z-index: 1;
+        }
+        .award{           
+            display: inline-flex;
+            justify-content: left;
+            position: relative;
+            top: 20px;
+            left: 124px;
+            }
+        .gold_coins{
+            border-radius: 90px;
+background: #ff6347;
+box-shadow: inset 5px 5px 10px #d9543c, 
+            inset -5px -5px 10px #ff7252;
+            width: 100px;
+            height: 30px;
+            border: 2px solid #ff6347 ;
+            margin-right: 10px;
+            margin-top: 10px;
+            padding: 2px 2px;
+        }
+        .win_ratio{
+            border-radius: 90px;
+background: #ff6347;
+box-shadow: inset 5px 5px 10px #d9543c, 
+            inset -5px -5px 10px #ff7252;
+            width: 100px;
+            margin-right: 10px;
+            margin-top: 10px;
+            padding: 2px 2px;
+        }
+        .heart{
+            border-radius: 90px;
+background: #ff6347;
+box-shadow: inset 5px 5px 10px #d9543c, 
+            inset -5px -5px 10px #ff7252;
+            width: 100px;
+            margin-top: 10px;
+            padding: 2px 2px;   
+        }
+        .about{
+            background-color: #F3EBF6;
+        width: 400px;
+        height: 400px;
+        border-radius: 1.5em;
+        box-shadow: 0px 5px 20px 2px rgba(0, 0, 0, 0.14);
+            display: inline-block ;
+            position: relative; 
+            top: -600px;
+            left: 850px;
+    </style>
+</head>
+<body>
+    <header>
+        <a href=""><img src="logo.png"></a>
+        <nav>
+            <ul>
+                <li> <a href="">Home</a></li>
+                <li><a href="">Task</a></li>
+                <li><a href="" >Wallet</a></li>
+                <li><a href="" class="active">profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- this id for background image -->
+    <div class="bgimg">
+    </div>
+    <div style="display: inline-block; position: relative; left: 16px; top: -55px; z-index: 2;">
+    <div style="
+    /* Rounded border */
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+   
+">
+    <!-- Avatar image -->
+    <img
+        src="team-4.jpg"
+        style="
+            /* Rounded border */
+            border-radius: 50%;
+
+            /* Take full size */
+            height: 100%;
+            width: 100%;
+            
+        "
+    />
+</div>
+</div>
+<div style="  position: relative;
+top: -104px;
+left: 0;
+height: 15vh;
+background: #ff6347;
+z-index: 1;">
+
+<div class="award">
+    <div class="gold_coins">
+        <i class="fa fa-database" aria-hidden="true"></i><span>0</span>
+    </div>
+    <div class="win_ratio">
+        <i class="fa fa-trophy" aria-hidden="true"></i>
+        <span>0</span>
+    </div>
+    <div class="heart">
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <span>0</span>
+    </div>
+</div>
+</div>
+<p class="name">Sucide Squad</p>
+<div style="margin: 0; position: relative; top: -130px;">
+    <h1>Stats</h1>
+    <div id="chart_div" style="width: 70%; height: 500px; position: relative; left: -100px; "></div>
+</div>
+<div class="about">
+    <p>About Me</p>
+    <span>gamil</span><span>0</span>
+</div>
+<div>
+<h1></h1>
+</div>
+</body>
+</html>
