@@ -21,7 +21,7 @@ def signIn(request):
         password = request.POST['password']
 
         # sign in with username
-        user = auth.authenticate(username=user_mob, password=password)
+        user = auth.authenticate(request, username=user_mob, password=password)
         if user is not None:      # log in done
             auth.login(request, user)
             return render(request, 'join_Host.html')
